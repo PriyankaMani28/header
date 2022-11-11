@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.outer-header{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 20px;
+    background-color: beige;
+}
+
+.navigation{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navigation ul{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.navigation ul li a{
+    text-decoration: none;
+    color:black;
+}
+
+.icon[name="close-outline"]{
+    display: none;
+}
+
+.navIcons{
+    display: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+@media(max-width:500px){
+    .navIcons{
+        display: block;
+    }
+
+    .outer-header{
+        position: relative;
+    }
+
+    .navigation{
+        position: absolute;
+        background-color: white;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        left: 0;
+        justify-content: center;
+
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+    }
+
+    .navigation ul{
+        display: block;
+    }
+
+    .navigation ul li{
+        margin-bottom: 20px;
+    }
+
+    .active .navigation{
+        transform: translateX(0%);
+    }
+
+    .active .navIcons .icon[name="close-outline"]{
+        display: block;
+    }
+
+    .active .navIcons .icon[name="menu-outline"]{
+        display: none;
+    }
+
+    .navIcons{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .icon{
+        height: 2em;
+        width: 2em;
+    }
+}
